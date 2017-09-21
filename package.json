@@ -16,12 +16,13 @@
 		"test"
 	],
 	"scripts": {
-		"build": "webpack",
+		"build": "npm run soy:cache && webpack",
 		"compile": "babel --presets metal -d lib/ src/",
 		"postinstall": "npm run build",
 		"prepublish": "npm run soy && npm run compile",
 		"soy": "metalsoy --soyDeps node_modules/metal*/src/**/*.soy node_modules/clay*/src/**/*.soy",
-		"start": "node server.js",
+		"soy:cache": "npm run soy -- -d .soycache",
+		"start": "npm run soy:cache && node server.js",
 		"test": "npm run soy && jest"
 	},
 	"keywords": [
@@ -49,7 +50,7 @@
 		"jest": "^20.0.4",
 		"metal-jest-serializer": "^1.0.1",
 		"metal-lerna-jest-resolver": "^1.0.0",
-		"metal-soy-loader": "github:metal/metal-soy-loader",
+		"metal-soy-loader": "github:metal/metal-soy-loader#cache",
 		"metal-tools-soy": "^4.2.1",
 		"node-sass": "^4.5.3",
 		"sass-loader": "^6.0.6",

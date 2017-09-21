@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 
 module.exports = {
-	entry: './src/Example.js',
+	entry: './src/components/Example.js',
 	module: {
 		rules: [{
 			test: /\.soy$/,
