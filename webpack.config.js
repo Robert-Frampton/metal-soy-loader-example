@@ -5,6 +5,7 @@ module.exports = {
 	module: {
 		rules: [{
 			test: /\.soy$/,
+			exclude: /(node_modules)/,
 			use: {
 				loader: 'metal-soy-loader'
 			}
